@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Marble : MonoBehaviour 
+public class Marble : MonoBehaviour
 {
     public GameObject marble;
     public AudioSource marbleImpactSound;
     public Material marbleInside;
+    private float minPitch = 0.75f;
+    private float maxPitch = 1f;
+
 
     private void Start()
     {
@@ -17,6 +18,9 @@ public class Marble : MonoBehaviour
     {
         if (collision.relativeVelocity.magnitude > 2)
         {
+            marbleImpactSound.volume = collision.relativeVelocity.magnitude / 10f;
+            marbleImpactSound.pitch = Random.Range(minPitch, maxPitch);
+            Debug.Log("Volume: " + marbleImpactSound.volume + " Pitch: " + marbleImpactSound.pitch);
             marbleImpactSound.Play();
         }
     }
