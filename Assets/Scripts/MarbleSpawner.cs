@@ -19,7 +19,7 @@ public class MarbleSpawner : MonoBehaviour
         numOfMarblesSpawned++;
         Debug.Log("Marble Spawned: " + numOfMarblesSpawned);
         Instantiate(marble, spawnPoint);
-        if (numOfMarblesSpawned < 11)
+        if (numOfMarblesSpawned < 10)
         {
             StartCoroutine(marbleSpawnTimer());
         }
