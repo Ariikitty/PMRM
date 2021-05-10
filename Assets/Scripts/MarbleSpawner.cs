@@ -8,11 +8,6 @@ public class MarbleSpawner : MonoBehaviour
     public float delayBetweenSpawns;
     [SerializeField] private int numOfMarblesSpawned = 0;
 
-    private void Start()
-    {
-        StartCoroutine(marbleSpawnTimer());
-    }
-
     private IEnumerator marbleSpawnTimer()
     {
         yield return new WaitForSeconds(delayBetweenSpawns);
@@ -23,5 +18,10 @@ public class MarbleSpawner : MonoBehaviour
         {
             StartCoroutine(marbleSpawnTimer());
         }
+    }
+
+    public void Button()
+    {
+        StartCoroutine(marbleSpawnTimer());
     }
 }
